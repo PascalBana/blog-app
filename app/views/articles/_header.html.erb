@@ -1,7 +1,15 @@
 <header>
   <h2>Pascal's blog app</h2>
   <ul>
+    <% if user_signed_in? %>
+      <li><%= link_to "Sign Out", destroy_user_session_path, method: :delete %></li>
+    <% else %>
+    <li><%= link_to "Sign Up", new_user_registration_path %></li>
+    <li><%= link_to "Sign In", user_session_path %></li>
+    <% end %>
     <li><%= link_to "Posts", articles_posts_path %></li>
     <li><%= link_to "Home", root_path %></li>
+
+
   </ul>
 </header>
